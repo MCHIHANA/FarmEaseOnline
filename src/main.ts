@@ -8,7 +8,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3001', // Local development frontend
-      'https://mlimiagulefrontend.onrender.com', 
+      'farmeaseonline.onrender.com', 
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     allowedHeaders: ['Content-Type', 'Authorization'], 
