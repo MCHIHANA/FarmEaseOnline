@@ -6,14 +6,16 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors({
-    origin: ['http://localhost:3001', 'https://your-frontend-domain.com'], // Add your frontend's domain(s)
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    credentials: true, // Enable this if cookies or auth headers are required
+    origin: [
+      'http://localhost:3001', // Local development frontend
+      'https://mlimiagulefrontend.onrender.com', 
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type', 'Authorization'], 
+    credentials: true,
   });
 
-  // Configure the app to listen on Render's port and all interfaces
   const port = process.env.PORT || 3000;
-  await app.listen(port, '0.0.0.0'); // Ensure it binds to all network interfaces
+  await app.listen(port, '0.0.0.0');
 }
 bootstrap();
