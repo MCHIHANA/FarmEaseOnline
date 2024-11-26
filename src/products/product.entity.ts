@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('products') // Ensure this matches your database table name
 export class Product {
   @PrimaryGeneratedColumn()
   id: number;
@@ -14,6 +14,21 @@ export class Product {
   @Column('decimal')
   price: number;
 
-  @Column({ nullable: true }) // Allow this field to be optional
+  @Column()
+  category: string;
+
+  @Column()
+  productType: string;
+
+  @Column()
+  farmName: string;
+
+  @Column()
+  location: string;
+
+  @Column()
   imageUrl: string;
+
+  @Column({ default: true })
+  available: boolean;
 }

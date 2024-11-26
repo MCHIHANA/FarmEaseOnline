@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductModule } from './products/product.module';
+import { ProductsModule } from './products/product.module';
+import { UploadModule } from './products/upload.module';
 import { AuthModule } from './auth/auth.module';
 import { PaymentModule } from './payments/payments.module';
 
@@ -24,7 +25,8 @@ import { PaymentModule } from './payments/payments.module';
     }),
 
     // Import your feature modules
-    ProductModule,
+    ProductsModule,
+    UploadModule,
     AuthModule,
     PaymentModule,
   ],
