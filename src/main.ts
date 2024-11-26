@@ -7,8 +7,8 @@ async function bootstrap() {
   // Enable CORS
   app.enableCors({
     origin: [
-      'http://localhost:3001', // Local development frontend
-      'farmeaseonline.onrender.com', 
+      'http://localhost:3001',
+      'https://farmeaseonline.onrender.com/', 
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     allowedHeaders: ['Content-Type', 'Authorization'], 
