@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+
 @Injectable()
 export class AuthService {
   constructor(
@@ -12,7 +13,6 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  // Register a new user
   async register(
     full_name: string,
     farm_name: string,
@@ -33,7 +33,7 @@ export class AuthService {
     return this.userRepository.save(user);
   }
 
-  // Validate user credentials
+  
   async validateUser(email: string, password: string): Promise<User | null> {
     const user = await this.userRepository.findOne({ where: { email } });
     if (user && (await bcrypt.compare(password, user.password))) {
@@ -42,7 +42,6 @@ export class AuthService {
     return null;
   }
 
-  // Login a user and generate a JWT
   async login(user: { email: string; password: string }): Promise<{ accessToken: string }> {
     const existingUser = await this.validateUser(user.email, user.password);
     if (!existingUser) {
