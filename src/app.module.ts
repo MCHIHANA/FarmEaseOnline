@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './products/product.module';
 import { AuthModule } from './auth/auth.module';
+import { PaymentModule } from './payments/payments.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { AuthModule } from './auth/auth.module';
     // Import your feature modules
     ProductModule,
     AuthModule,
+    PaymentModule,
   ],
 })
 export class AppModule {}
